@@ -11,6 +11,8 @@ var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" 
 var compression = require('compression');
 var helmet = require('helmet');
 
+var PORT = process.env.PORT || 3000;
+
 var app = express();
 
 //Set up mongoose connection
@@ -104,6 +106,10 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}!`);
 });
 
 module.exports = app;
