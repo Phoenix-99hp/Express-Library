@@ -8,4 +8,4 @@ This website allows users to view all books, book instances, authors, and genres
 
 Cosmetic niceties are, for the most part, neglected because the "express" purpose of this project was to practice back-end development techniques. 
 
-![](express-library-tutorial/public/images/Express-Library-Screenshot.png)
+![](./public/images/Express-Library-Screenshot.png)
