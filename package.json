@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "heroku-postbuild": "node populatedb.js"
+    "seed": "node populatedb.js"
   },
   "dependencies": {
     "async": "^3.2.0",
