@@ -7,7 +7,6 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www",
     "seed": "node populatedb.js"
   },
   "dependencies": {
