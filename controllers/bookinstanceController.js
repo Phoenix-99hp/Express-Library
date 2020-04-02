@@ -61,10 +61,10 @@ exports.bookinstance_create_post = [
     body('status', 'Status must be specified').trim().isLength({ min: 1 }),
 
     // Sanitize fields.
-    sanitizeBody('book').escape(),
-    sanitizeBody('imprint').escape(),
-    sanitizeBody('status').trim().escape(),
-    sanitizeBody('due_back').toDate(),
+    // sanitizeBody('book').escape(),
+    // sanitizeBody('imprint').escape(),
+    // sanitizeBody('status').trim().escape(),
+    // sanitizeBody('due_back').toDate(),
 
     // Process request after validation and sanitization.
     (req, res, next) => {
@@ -174,10 +174,10 @@ exports.bookinstance_update_post = [
     body('due_back', 'Invalid date').optional({ checkFalsy: true }).isISO8601(),
 
     // Sanitize fields.
-    sanitizeBody('book').escape(),
-    sanitizeBody('imprint').escape(),
-    sanitizeBody('status').escape(),
-    sanitizeBody('due_back').toDate(),
+    // sanitizeBody('book').escape(),
+    // sanitizeBody('imprint').escape(),
+    // sanitizeBody('status').escape(),
+    // sanitizeBody('due_back').toDate(),
 
     // Process request after validation and sanitization.
     (req, res, next) => {

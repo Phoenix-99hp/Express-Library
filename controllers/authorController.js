@@ -64,10 +64,10 @@ exports.author_create_post = [
     body('date_of_death', 'Invalid date of death').optional({ checkFalsy: true }).isISO8601(),
 
     // Sanitize fields.
-    sanitizeBody('first_name').escape(),
-    sanitizeBody('family_name').escape(),
-    sanitizeBody('date_of_birth').toDate(),
-    sanitizeBody('date_of_death').toDate(),
+    // sanitizeBody('first_name').escape(),
+    // sanitizeBody('family_name').escape(),
+    // sanitizeBody('date_of_birth').toDate(),
+    // sanitizeBody('date_of_death').toDate(),
 
     // Process request after validation and sanitization.
     (req, res, next) => {
@@ -171,8 +171,8 @@ exports.author_update_post = [
     // Validate fields.
 
     // Sanitize fields.
-    sanitizeBody('first_name').escape(),
-    sanitizeBody('family_name').escape(),
+    // sanitizeBody('first_name').escape(),
+    // sanitizeBody('family_name').escape(),
 
     // Process request after validation and sanitization.
     (req, res, next) => {
