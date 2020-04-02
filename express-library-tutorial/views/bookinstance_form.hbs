@@ -1,0 +1,59 @@
+<h1>{{title}}</h1>
+
+<form method='POST' action=''>
+    <div class='form-group'>
+        <label for='book'>Book:</label>
+        <select id='book' class='form-control' type='select' placeholder='Select book' name='book' required='true'>
+            <option disabled="true" selected="true">Select an option...</option>
+            {{#each book_list}}
+            {{#if bookinstance}}
+            <option value={{this._id}} selected={{#isSelectedString bookinstance.book this._id}}{{/isSelectedString}}>
+                {{this.title}}
+            </option>
+            {{else}}
+            <option value={{this._id}}>{{this.title}}</option>
+            {{/if}}
+            {{/each}}
+        </select>
+    </div>
+    <div class='form-group'>
+        <label for='imprint'>Imprint:</label>
+        <input id='imprint' class='form-control' type='text' placeholder='Publisher and date information' name='imprint'
+            required='true' value={{#if bookinstance}}{{bookinstance.imprint}}{{else}}''{{/if}}>
+    </div>
+    <div class='form-group'>
+        <label for='due_back'>Date when book available:</label>
+        <input id='due_back' class='form-control' type='date' name='due_back'
+            value={{#if bookinstance}}{{#dateSlice bookinstance.due_back}}{{/dateSlice}}{{else}}''{{/if}}>
+    </div>
+    <div class='form-group'>
+        <label for='status'>Status:</label>
+        <select id='status' class='form-control' type='select' placeholder='Select status' name='status'
+            required='true'>
+            {{#if bookinstance.status}}
+            <option value='Maintenance' selected={{#isSelected bookinstance.status 'Maintenance'}}{{/isSelected}}>
+                Maintenance</option>
+            <option value='Available' selected={{#isSelected bookinstance.status 'Available'}}{{/isSelected}}>Available
+            </option>
+            <option value='Loaned' selected={{#isSelected bookinstance.status 'Loaned'}}{{/isSelected}}>Loaned </option>
+            <option value='Reserved' selected={{#isSelected bookinstance.status 'Reserved'}}{{/isSelected}}>Reserved
+            </option>
+            {{else}}
+            <option disabled="true" selected="true">Select an option...</option>
+            <option value='Maintenance'>Maintenance</option>
+            <option value='Available'>Available </option>
+            <option value='Loaned'>Loaned </option>
+            <option value='Reserved'>Reserved</option>
+            {{/if }}
+        </select>
+    </div>
+    <button class='btn btn-primary' type='submit'>Submit</button>
+</form>
+
+{{#if errors}}
+<ul>
+    {{#each errors}}
+    <li>{{this.msg}}</li>
+    {{/each}}
+</ul>
+{{/if}}

@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+
+<ul>
+    {{#each genre_list}}
+    {{#if this.url}}
+    <li>
+        <a href={{this.url}}>{{this.name}}</a>
+    </li>
+    {{else}}
+    <li> There are no books available.</li>
+    {{/if}}
+    {{/each}}
+</ul>

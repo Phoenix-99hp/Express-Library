@@ -1,0 +1,61 @@
+<h1>{{title}}</h1>
+
+<form method='POST' action=''>
+    <div class='form-group'>
+        <label for='title'>Title:</label>
+        <input id='title' class='form-control' type='text' placeholder='Name of book' name='title' required='true'
+            value={{#if book}}"{{book.title}}"{{else}}''{{/if}}>
+    </div>
+    <div class='form-group'>
+        <label for='author'>Author:</label>
+        <select id='author' class='form-control' type='select' placeholder='Select author' name='author'
+            required='true'>
+            {{#if book}}
+            {{#each authors}}
+            <option
+                value={{this._id}}selected={{#isSelectedOr this._id ../book.author._id ../book.author}}{{/isSelectedOr}}>
+                {{../book.author.name}}
+            </option>
+            {{/each}}
+            {{else}}
+            <option disabled="true" selected="true">Select an option...</option>
+            {{#each authors}}
+            <option value={{this._id}}>
+                {{this.name}}
+            </option>
+            {{/each}}
+            {{/if}}
+        </select>
+    </div>
+    <div class='form-group'>
+        <label for='summary'>Summary:</label>
+        <textarea id='summary' class='form-control' type='textarea' placeholder='Summary' name='summary' rows='3'
+            required='true'>{{#if book}}{{book.summary}}{{/if}}</textarea>
+    </div>
+    <div class='form-group'>
+        <label for='isbn'>ISBN:</label>
+        <input id='isbn' class='form-control' type='text' , placeholder='ISBN13' name='isbn'
+            value={{#if book}}{{book.isbn}}{{else}}''{{/if}} required='true'>
+    </div>
+    <div class='form-group'>
+        <label>Genre:</label>
+        <div>
+            {{#each genres}}
+            <div style='display: inline; padding-right:10px;'>
+                <input class='checkbox-input' type='checkbox' name='genre' id={{this._id}} value={{this._id}}
+                    {{#if this.checked}}checked{{/if}}>
+                <label for={{this._id}}>{{this.name}}</label>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <button class='btn btn-primary' type='submit'>Submit</button>
+</form>
+
+{{#if errors}}
+<ul>
+    {{#each errors}}
+    <li>{{this.msg}}</li>
+    {{/each}}
+</ul>
+{{/if}}

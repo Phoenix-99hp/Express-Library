@@ -1,0 +1,23 @@
+<h1>Author: {{author.name}}</h1>
+<p>{{author.lifespan_formatted}}</p>
+
+<div style='margin-left:20px;margin-top:20px'>
+
+    <h4>Books</h4>
+
+    <dl>
+        {{#each authors_books}}
+        {{#if this.title}}
+        <dt><a href={{this.url}}>{{this.title}}</a></dt>
+        <dd> {{this.summary}} </dd>
+        {{else}}
+        <p> This author has no books.</p>
+        {{/if}}
+        {{/each}}
+    </dl>
+
+</div>
+
+<hr>
+<p><a href={{#stringify author.url '/delete'}}{{/stringify}}>Delete author</a></p>
+<p><a href={{#stringify author.url '/update'}}{{/stringify}}>Update author</a></p>

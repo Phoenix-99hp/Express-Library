@@ -1,0 +1,22 @@
+<h1>Genre: {{genre.name}}</h1>
+
+<div style='margin-left:20px;margin-top:20px'>
+
+    <h4>Books</h4>
+
+    <dl>
+        {{#if genre_books}}
+        {{#each genre_books}}
+        <dt>
+            <a href={{this.url}}>{{this.title}}</a>
+        </dt>
+        <dd>{{this.summary}}</dd>
+        {{/each}}
+        {{else}}
+        <dt>This genre has no books</dt>
+        {{/if}}
+    </dl>
+</div>
+<hr>
+<p><a href={{#stringify genre.url '/delete'}}{{/stringify}}>Delete genre</a></p>
+<p><a href={{#stringify genre.url '/update'}}{{/stringify}}>Update genre</a></p>

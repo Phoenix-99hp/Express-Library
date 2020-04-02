@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+
+<ul>
+    {{#each bookinstance_list}}
+    <li>
+        <a href={{this.url}}> {{this.book.title}} : {{this.imprint}}</a> -
+        {{#if this.status}}
+        {{#ifEquals this.status 'Available'}}
+        <span class="text-success">{{this.status}}</span>
+        {{/ifEquals}}
+        {{#ifEquals this.status 'Maintenance'}}
+        <span class="text-danger">{{this.status}}</span>
+        {{/ifEquals}}
+        {{#ifEquals this.status 'Loaned'}}
+        <span class="text-warning">{{this.status}}</span>
+        {{/ifEquals}}
+
+        {{#ifUnequal this.status 'Available'}}
+        <span>(Due: {{this.due_back_formatted}})</span>
+        {{/ifUnequal}}
+
+        {{else}}
+        <span>There are no book copies in this library.</span>
+        {{/if}}
+    </li>
+    {{/each}}
+</ul>

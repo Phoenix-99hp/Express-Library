@@ -1,0 +1,37 @@
+<h1>Title: {{book.title}}</h1>
+
+<p>Author:
+    <a href={{book.author.url}}> {{book.author.name}}</a></p>
+<p>Summary: {{book.summary}}</p>
+<p>ISBN: {{book.isbn}}</p>
+<p>Genre:
+    {{#each book.genre}}
+    <a href={{this.url}}>{{this.name}}</a>
+    {{/each}}
+</p>
+<div style='margin-left:20px;margin-top:20px'>
+    <h4>Copies</h4>
+    {{#each book_instances}}
+    <hr>
+    {{#ifEquals this.status 'Available'}}
+    <p class="text-success">{{this.status}}</p>
+    {{/ifEquals}}
+    {{#ifEquals this.status 'Maintenance'}}
+    <p class="text-danger">{{this.status}} </p>
+    {{/ifEquals}}
+    {{#ifEquals this.status 'Loaned'}}
+    <p class="text-warning">{{this.status}}</p>
+    {{/ifEquals}}
+    <p>Imprint: {{this.imprint}}</p>
+    {{#ifUnequal this.status 'Available'}}
+    <p>Due back: {{this.due_back_formatted}}</p>
+    {{/ifUnequal}}
+    <p>Id: <a href={{this.url}}>{{this._id}}</a></p>
+    {{else}}
+    <p>There are no copies of this book in the library.</p>
+    {{/each}}
+</div>
+
+<hr>
+<p><a href={{#stringify book.url '/delete'}}{{/stringify}}>Delete Book</a> </p>
+<p><a href={{#stringify book.url '/update'}}{{/stringify}}>Update Book</a></p>
