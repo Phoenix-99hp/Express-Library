@@ -22,6 +22,9 @@
     {{#ifEquals this.status 'Loaned'}}
     <p class="text-warning">{{this.status}}</p>
     {{/ifEquals}}
+    {{#ifEquals this.status 'Reserved'}}
+    <p class="text-info">{{this.status}}</p>
+    {{/ifEquals}}
     <p>Imprint: {{this.imprint}}</p>
     {{#ifUnequal this.status 'Available'}}
     <p>Due back: {{this.due_back_formatted}}</p>
