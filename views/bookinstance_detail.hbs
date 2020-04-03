@@ -13,6 +13,9 @@
     {{#ifEquals bookinstance.status 'Loaned'}}
     <span class="text-warning">{{bookinstance.status}}</span>
     {{/ifEquals}}
+    {{#ifEquals bookinstance.status 'Reserved'}}
+    <span class="text-info">{{bookinstance.status}}</span>
+    {{/ifEquals}}
     {{#ifUnequal bookinstance.status 'Available'}}
     <p><b>Due back:</b> {{bookinstance.due_back_formatted}}</p>
     {{/ifUnequal}}
