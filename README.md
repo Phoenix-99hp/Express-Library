@@ -1,6 +1,6 @@
 # Express Library 
 
-Deployed: 
+Deployed: https://guarded-oasis-70508.herokuapp.com/
 
 This is a library website that I made with Express while following the Odin Project's curriculum. While following that curiculum, I was directed to an MDN tutorial (https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website) that provided code snippets and guidance for building this website. While some code was provided piece by piece as I read through the tutorial, other essential bits were left as a challenge and are original. Additionally, the view snippets provided in the tutorial were written in Pug, and I chose to translate them to Handlebars. 
 
