@@ -14,6 +14,9 @@
         {{#ifEquals this.status 'Loaned'}}
         <span class="text-warning">{{this.status}}</span>
         {{/ifEquals}}
+        {{#ifEquals this.status 'Reserved'}}
+        <span class="text-info">{{this.status}}</span>
+        {{/ifEquals}}
 
         {{#ifUnequal this.status 'Available'}}
         <span>(Due: {{this.due_back_formatted}})</span>
