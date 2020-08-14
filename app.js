@@ -1,4 +1,3 @@
-require("dotenv").config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -18,8 +17,7 @@ var app = express();
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var dev_db_url = "mongodb://localhost/library";
-var mongoDB = process.env.DB_URI || dev_db_url;
+var mongoDB = process.env.DB_URI;
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
